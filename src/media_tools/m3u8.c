@@ -402,7 +402,7 @@ static char** parse_attributes(const char *line, s_accumulated_attributes *attri
 		}
 		return ret;
 	}
-	ret = extract_attributes("#EXTINF:", line, 2);
+	ret = extract_attributes("#EXTINF:", line, 4);
 	if (ret) {
 		M3U8_COMPATIBILITY_VERSION(1);
 		/* #EXTINF:<duration>,<title> */
@@ -421,7 +421,7 @@ static char** parse_attributes(const char *line, s_accumulated_attributes *attri
 		}
 		return ret;
 	}
-	ret = extract_attributes("#EXT-X-KEY:", line, 4);
+	ret = extract_attributes("#EXT-X-KEY:", line, 5);
 	if (ret) {
 		/* #EXT-X-KEY:METHOD=<method>[,URI="<URI>"] */
 		const char *method = "METHOD=";
